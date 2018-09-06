@@ -19,17 +19,16 @@ $(function() {
 
     // When an Order button is clicked, change "devoured" from false to true
     $(".order-btn").on("click", function(event) {
-        var id = $(this).data("id");
-        var newState = {
-            devoured: true
-        }
+        event.preventDefault();
 
-        $.ajax("/api/burgers" + id, {
+        var id = $(this).data("id");
+
+        $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: newState
+            data: { id: id }
         }).then(function() {
             location.reload();
-        })
+        });
     });
 
 });

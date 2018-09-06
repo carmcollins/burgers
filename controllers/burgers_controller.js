@@ -6,7 +6,6 @@ var burger = require("../models/burger.js");
 var router = express.Router();
 
 router.get("/", function(req, res) {
-    console.log("/ route hit");
     burger.all(function(data) {
         var hbsObject = {
             burgers: data
@@ -16,7 +15,7 @@ router.get("/", function(req, res) {
 });
   
 router.post("/api/burgers", function(req, res) {
-    burger.create(["name"], [req.body.name], function(result) {
+    burger.create(req.body.burger_name, function(result) {
         res.json({ id: result.insertId });
     });
 });
