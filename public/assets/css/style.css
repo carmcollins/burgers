@@ -1,0 +1,14 @@
+body {
+    background: lightskyblue;
+}
+
+h4 {
+    font-family: 'Comfortaa', cursive;
+    color: salmon;
+}
+
+@media only screen and (min-width: 800px) {
+    img {
+        width: 50%;
+    }
+}

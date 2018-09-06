@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Burgers, Burgers, Burgers!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <!-- Javascript -->
+    <script src="assets/js/script.js"></script>
+</head>
+<body>
+    <!-- Title -->
+    <div class="row">
+        <div class="col s12 center-align">
+            <img class="responsive-img" src="assets/images/logo.png" alt="bobs-burgers">
+        </div>
+    </div>
+    <!-- Cards -->
+    <div class="row">
+        <!-- Add A Burger -->
+        <div class="col s12 m4">
+            <div class="card">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>Add A Burger</h4></li>
+                    <li class="collection-item">
+                        <form>
+                            <div class="input-field">
+                                <input id="burger-name" type="text">
+                                <label for="burger-name">Burger Name</label>
+                            </div>
+                            <div class="right-align"><a id="add-btn" class="waves-effect waves-light btn-small orange">Submit</a></div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- On The Menu -->
+        <div class="col s12 m4">
+            <div class="card">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>On The Menu</h4></li>
+                    <li class="collection-item">
+                        <div>Poblano Picasso Burger</div>
+                        <div class="right-align"><a id="order-btn" class="waves-effect waves-light btn-small">Order</a></div>
+                    </li>
+                    <li class="collection-item">
+                        <div>Sweet Home Avocado Burger</div>
+                        <div class="right-align"><a id="order-btn" class="waves-effect waves-light btn-small">Order</a></div>
+                    </li>
+                    <li class="collection-item">
+                        <div>Say It Ain't Cilantro Burger</div>
+                        <div class="right-align"><a id="order-btn" class="waves-effect waves-light btn-small">Order</a></div>
+                    </li>
+                    <li class="collection-item">
+                        <div>I Heartichoke You Burger</div>
+                        <div class="right-align"><a id="order-btn" class="waves-effect waves-light btn-small">Order</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Your Order -->
+        <div class="col s12 m4">
+            <div class="card">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>Your Order</h4></li>
+                    <li class="collection-item">Poblano Picasso Burger</li>
+                    <li class="collection-item">Sweet Home Avocado Burger</li>
+                    <li class="collection-item">Say It Ain't Cilantro Burger</li>
+                    <li class="collection-item">I Heartichoke You Burger</li>
+                </ul>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
