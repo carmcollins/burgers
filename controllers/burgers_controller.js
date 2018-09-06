@@ -1,16 +1,16 @@
+// Importing Express and the burger model
 var express = require("express");
-
-var router = express.Router();
-
 var burger = require("../models/burger.js");
 
-// Create all routes and set up logic within routes where required
+// Creating the router app
+var router = express.Router();
+
 router.get("/", function(req, res) {
+    console.log("/ route hit");
     burger.all(function(data) {
         var hbsObject = {
             burgers: data
         };
-        console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
@@ -22,32 +22,10 @@ router.post("/api/burgers", function(req, res) {
 });
   
 router.put("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-  
-    console.log("condition", condition);
-  
-    burger.update({
-      devoured: req.body.devoured
-    }, condition, function(result) {
-        if (result.changedRows == 0) {
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
+    burger.update(req.params.id, function(result) {
+        res.sendStatus(200);
     });
 });
   
-router.delete("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-  
-    burger.delete(condition, function(result) {
-        if (result.affectedRows == 0) {
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        } 
-    });
-});
-  
-// Export routes for server to use
+// Exporting routes
 module.exports = router;

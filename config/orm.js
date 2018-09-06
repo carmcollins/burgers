@@ -1,31 +1,32 @@
 // Importing MySQL connection
 var connection = require("./connection.js");
 
-// Creating ORMs
+// Creating ORM methods
 var orm = {
-    selectAll: function(tableInput) {
+    selectAll: function(table, cb) {
         var queryString = "SELECT * FROM ??";
-        connection.query(queryString, [tableInput], function(err, result) {
+        connection.query(queryString, [table], function(err, result) {
             if (err) throw err;
-            console.log(result);
+            cb(result);
         });
     },
 
-    insertOne: function(tableInput, columnInput, dataInput) {
-        var queryString = "INSERT INTO ?? (??) VALUES ('?')";
-        connection.query(queryString, [tableInput, columnInput, dataInput], function(err, result) {
+    insertOne: function(table, column, name, cb) {
+        var queryString = "INSERT INTO ?? (??) VALUES (?)";
+        connection.query(queryString, [table, column, name], function(err, result) {
             if (err) throw err;
-            console.log(result);
+            cb(result);
         });
     },
 
-    updateOne: function(tableInput, columnInput, idInput, idValue) {
-        var queryString = "UPDATE ?? SET ?? WHERE ?? = ?";
-        connection.query(queryString, [tableInput, columnInput, idInput, idValue], function(err, result) {
+    updateOne: function(table, column, condition, cb) {
+        var queryString = "UPDATE ?? SET ?? WHERE ??";
+        connection.query(queryString, [table, column, condition], function(err, result) {
             if (err) throw err;
-            console.log(result);
+            cb(result);
         });
     }
 };
 
+// Exporting the ORM object
 module.exports = orm;
